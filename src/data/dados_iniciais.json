@@ -1,6 +1,25 @@
 {
   "categorias": [
     {
+      "titulo": "Educação Financeira",
+      "link": "https://mepoupenaweb.uol.com.br/",
+      "cor": "#6BD1FF",
+      "link_extra": {
+        "text": "Aprenda estratégias para administrar suas finanças.",
+        "url": "https://mepoupenaweb.uol.com.br/"
+      },
+      "videos": [
+        {
+          "titulo": "5 DICAS PODEROSAS DE EMPREENDEDORISMO PRA COMEÇAR! Experiência própria",
+          "url": "https://www.youtube.com/watch?v=im7ct31o35c"
+        },
+        {
+          "titulo": "Como GANHAR DINHEIRO com o WhatsApp e o Instagram?",
+          "url": "https://www.youtube.com/watch?v=iuB5B1SXaH4"
+        }
+      ]
+    },
+    {
       "titulo": "Front End",
       "link": "https://www.alura.com.br/formacao-front-end",
       "cor": "#6BD1FF",
