@@ -29,30 +29,15 @@ function CadastroCategoria() {
   }
 
   useEffect(() => {
-    const URL = 'http://localhost:8080/categorias';
+    const URL = window.location.hostname.includes('localhost')
+      ? 'http://localhost:8080/categorias'
+      : 'https://felipeassisflix.herokuapp.com/categorias';
     fetch(URL).then(async (respostaDoServidor) => {
       const resposta = await respostaDoServidor.json();
       setCategorias([
         ...resposta,
       ]);
     });
-    // setTimeout(() => {
-    //   setCategorias([
-    //     ...categorias,
-    //     {
-    //       id: 1,
-    //       nome: 'Front-end',
-    //       descricao: 'Uma categoria show',
-    //       cor: '#CBD1FF',
-    //     },
-    //     {
-    //       id: 2,
-    //       nome: 'Back-end',
-    //       descricao: 'Outra categoria show',
-    //       cor: '#CBD1FF',
-    //     },
-    //   ]);
-    // }, 4 * 1000);
   }, [
     values.nome,
   ]);
