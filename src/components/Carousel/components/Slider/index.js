@@ -47,7 +47,16 @@ const Slider = ({ children }) => (
 				speed: 300,
 				centerMode: false,
 				variableWidth: true,
-				adaptiveHeight: true,
+                adaptiveHeight: true,
+                responsive: [
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToScroll: 1,
+                            slidesToShow: 1
+                        }
+                    }
+                ]
 			}}
 		>
 			{children}

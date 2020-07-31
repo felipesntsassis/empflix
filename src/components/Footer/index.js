@@ -9,21 +9,27 @@ function Footer() {
 			</a>
 			<p>
 				<strong>Empflix</strong>. Sua TV digital sobre empreendedorismo criado com{" "}
-				<a href="https://reactjs.org/" target="_blank">ReactJS</a>.
-                <br/>
+				<a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">
+					ReactJS
+				</a>
+				.
+				<br />
 				Desenvolvido por{" "}
-				<a href="https://www.linkedin.com/in/felipesntsassis/" target="_blank">
+				<a href="https://www.linkedin.com/in/felipesntsassis/" target="_blank" rel="noopener noreferrer">
 					Felipe Assis
 				</a>
-                <br/>
+				<br />
 				Código-fonte disponível em{" "}
-				<a href="https://github.com/felipesntsassis/empflix" target="_blank">
+				<a href="https://github.com/felipesntsassis/empflix" target="_blank" rel="noopener noreferrer">
 					felipesntsassis/empflix
 				</a>
 				.
 			</p>
 			<p>
-				Orgulhosamente criado durante a <a href="https://www.alura.com.br/" target="_blank">Imersão React da Alura</a>
+				Orgulhosamente criado durante a{" "}
+				<a href="https://www.alura.com.br/" target="_blank" rel="noopener noreferrer">
+					Imersão React da Alura
+				</a>
 			</p>
 		</FooterBase>
   );
