@@ -5,13 +5,7 @@ import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 
-function CadastroCategoria() {
-  const valoresIniciais = {
-    nome: '',
-    descricao: '',
-    cor: '',
-  };
-  const [categorias, setCategorias] = useState([]);
+function useForm(valoresIniciais) {
   const [values, setValues] = useState(valoresIniciais);
 
   function setValue(chave, valor) {
@@ -21,12 +15,32 @@ function CadastroCategoria() {
     });
   }
 
+  function clearForm() {
+    setValues(valoresIniciais);
+  }
+
   function handleChange(infosDoEvento) {
     setValue(
       infosDoEvento.target.getAttribute('name'),
       infosDoEvento.target.value,
     );
   }
+
+  return {
+    clearForm,
+    handleChange,
+    values,
+  };
+}
+
+function CadastroCategoria() {
+  const valoresIniciais = {
+    titulo: '',
+    descricao: '',
+    cor: '',
+  };
+  const { values, handleChange, clearForm } = useForm(valoresIniciais);
+  const [categorias, setCategorias] = useState([]);
 
   useEffect(() => {
     const URL = window.location.hostname.includes('localhost')
@@ -39,7 +53,7 @@ function CadastroCategoria() {
       ]);
     });
   }, [
-    values.nome,
+    values.titulo,
   ]);
 
   return (
@@ -53,14 +67,14 @@ function CadastroCategoria() {
         onSubmit={function handleSubmit(infosDoEvento) {
           infosDoEvento.preventDefault();
           setCategorias([...categorias, values]);
-          setValues(valoresIniciais);
+          clearForm();
         }}
       >
         <FormField
           type="text"
-          name="nome"
-          label="Nome da Categoria"
-          value={values.nome}
+          name="titulo"
+          label="Título da Categoria"
+          value={values.titulo}
           onChange={handleChange}
         />
 
@@ -92,7 +106,7 @@ function CadastroCategoria() {
       )}
 
       <ul>
-        {categorias.map((categoria) => <li key={`${categoria.nome}`}>{categoria.nome}</li>)}
+        {categorias.map((categoria) => <li key={`${categoria.titulo}`}>{categoria.titulo}</li>)}
       </ul>
 
       <Link to="/">Ir para Home</Link>
