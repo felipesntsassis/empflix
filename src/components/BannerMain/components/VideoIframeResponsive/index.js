@@ -1,5 +1,5 @@
 import React from 'react';
-YouTubeIframeResponsiveYouTubeIframeResponsiveimport PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import { VideoContainer, ResponsiveIframe } from './styles';
 
