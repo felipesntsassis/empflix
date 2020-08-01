@@ -256,6 +256,18 @@
       "url": "https://www.youtube.com/watch?v=jOAU81jdi-c&t=61s",
       "categoriaId": 1,
       "id": 33
+    },
+    {
+      "titulo": "Jogo com JavaScript #01: Criando um Flappy Bird do ZERO!!!",
+      "url": "https://www.youtube.com/watch?v=jOAU81jdi-c&t=61s",
+      "categoriaId": 2,
+      "id": 34
+    },
+    {
+      "titulo": "Speedrun: Do Zero ao React | Como fazer um React e aprender a ideia do Virtual DOM na prática",
+      "url": "https://www.youtube.com/watch?v=5MzOCxSWrrc",
+      "categoriaId": 1,
+      "id": 35
     }
   ]
 }

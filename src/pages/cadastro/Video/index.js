@@ -1,32 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+
+import useForm from '../../../hooks/useForm';
+import categoriaRepository from '../../../repositories/categorias';
+import videoRepository from '../../../repositories/videos';
 
 import Button from '../../../components/Button';
 import FormField from '../../../components/FormField';
 import PageDefault from '../../../components/PageDefault';
 
-import useForm from '../../../hooks/useForm';
-import videoRepository from '../../../repositories/videos';
-
 function CadastroVideo() {
   const history = useHistory();
+  const [categorias, setCategorias] = useState([]);
+  const categoryTitles = categorias.map(({ titulo }) => titulo);
   const { values, handleChange } = useForm({
     titulo: 'Jogo com JavaScript #01: Criando um Flappy Bird do ZERO!!!',
     url: 'https://www.youtube.com/watch?v=jOAU81jdi-c&t=61s',
-    categoriaId: 'Front end',
+    categoria: 'Front end',
   });
 
+  useEffect(() => {
+    categoriaRepository
+      .getAll()
+      .then((categories) => {
+        setCategorias(categories);
+      });
+  }, []);
+
   return (
-    <PageDefault>
+    <PageDefault paddingAll={15}>
       <h1>Cadastro de Vídeo</h1>
 
       <form onSubmit={(event) => {
         event.preventDefault();
-        // alert('Vídeo cadastrado com sucesso!');
+        // alert('Vídeo cadastrdo com sucesso!');
+
+        const categoriaEscolhida = categorias.find((categoria) => categoria.titulo === values.categoria);
+
         videoRepository.create({
           titulo: values.titulo,
           url: values.url,
-          categoriaId: 1,
+          categoriaId: categoriaEscolhida.id,
         }).then(() => {
           console.log('Cadastrou com sucesso!');
           history.push('/');
@@ -51,10 +65,11 @@ function CadastroVideo() {
 
         <FormField
           type="text"
-          name="categoriaId"
+          name="categoria"
           label="Categoria"
-          value={values.categoriaId}
+          value={values.categoria}
           onChange={handleChange}
+          suggestions={categoryTitles}
         />
 
         <Button type="submit">
