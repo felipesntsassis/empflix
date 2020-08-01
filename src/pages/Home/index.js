@@ -27,9 +27,14 @@ function Home() {
           return (
             <div key={categoria.id}>
               <BannerMain
-                videoTitle={dadosIniciais[0].videos[0].titulo}
-                url={dadosIniciais[0].videos[0].url}
+                videoTitle={categoria.videos[0].titulo}
+                url={categoria.videos[0].url}
                 videoDescription="O que é Front-end? Trabalhando na área os termos HTML, CSS e JavaScript fazem parte da rotina das desenvolvedoras e desenvolvedores. Mas o que eles fazem, afinal? Descubra com a Vanessa!"
+              />
+
+              <Carousel
+                key={categoria.id}
+                category={categoria}
               />
             </div>
           );
